@@ -1,0 +1,28 @@
+[versions]
+ktxVersion = "1.10.1"
+appcompactVersion = "1.6.1"
+materialVersion = "1.9.0"
+constraintVersion = "2.1.4"
+#builds android
+compileSdk = "33"
+#Test
+junitVersion = "4.13.2"
+jAndroidxVersion = "1.1.5"
+androixEspressoCoreVersion = "3.5.1"
+
+[libraries]
+kotlin = {module = "androidx.core:core-ktx" , version.ref = "ktxVersion"}
+androidx-compact = { module = "androidx.appcompat:appcompat", version.ref="appcompactVersion"}
+google-material = {module = "com.google.android.material:material", version.ref = "materialVersion"}
+constraint-layout = {module= "androidx.constraintlayout:constraintlayout", version.ref="constraintVersion"}
+
+#Tests libs
+junit = {module = "junit:junit", version.ref = "junitVersion"}
+androidxTest = {module="androidx.test.ext:junit",version.ref= "jAndroidxVersion"}
+andridxEspresso = {module = "androidx.test.espresso:espresso-core",version.ref="androixEspressoCoreVersion"}
+
+[bundles]
+test = ["junit"]
+androidTest = ["androidxTest","andridxEspresso"]
+
+[plugins]
