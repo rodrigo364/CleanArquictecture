@@ -1,4 +1,4 @@
-package br.com.network.model
+package br.com.network.dto
 
 import android.util.Log
 

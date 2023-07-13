@@ -3,26 +3,41 @@ ktxVersion = "1.10.1"
 appcompactVersion = "1.6.1"
 materialVersion = "1.9.0"
 constraintVersion = "2.1.4"
-#builds android
-compileSdk = "33"
+lifecycleVersion = "2.6.0"
+coroutineVersion = "1.6.1"
+hiltVersion = "2.44"
 #Test
 junitVersion = "4.13.2"
 jAndroidxVersion = "1.1.5"
-androixEspressoCoreVersion = "3.5.1"
+androidxEspressoCoreVersion = "3.5.1"
+archVersion = "2.2.0"
 
 [libraries]
 kotlin = {module = "androidx.core:core-ktx" , version.ref = "ktxVersion"}
+coroutine-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref= "coroutineVersion"}
+coroutine-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref= "coroutineVersion"}
+hilt-android = { module = "com.google.dagger:hilt-android",version.ref="hiltVersion"}
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref="hiltVersion"}
 androidx-compact = { module = "androidx.appcompat:appcompat", version.ref="appcompactVersion"}
+androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref="lifecycleVersion"}
+androidx-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx" , version.ref="lifecycleVersion"}
+androidx-runtimektx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref="lifecycleVersion"}
+androidx-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate" , version.ref="lifecycleVersion"}
+#androidx-lifecycle-compiler = { module= "androidx.lifecycle:lifecycle-compile", version.ref = "lifecycleVersion"}
 google-material = {module = "com.google.android.material:material", version.ref = "materialVersion"}
 constraint-layout = {module= "androidx.constraintlayout:constraintlayout", version.ref="constraintVersion"}
 
 #Tests libs
 junit = {module = "junit:junit", version.ref = "junitVersion"}
 androidxTest = {module="androidx.test.ext:junit",version.ref= "jAndroidxVersion"}
-andridxEspresso = {module = "androidx.test.espresso:espresso-core",version.ref="androixEspressoCoreVersion"}
+androidxEspresso = {module = "androidx.test.espresso:espresso-core",version.ref="androidxEspressoCoreVersion"}
+androidxArchCore = { module = "androidx.arch.core:core-testing" , version.ref="archVersion"}
 
 [bundles]
-test = ["junit"]
-androidTest = ["androidxTest","andridxEspresso"]
+test = ["junit","androidxArchCore"]
+viewmodel = ["androidx.viewmodel","androidx.livedata","androidx.runtimektx",
+    "androidx.viewmodel.savedstate"]
+coroutine = ["coroutine-core","coroutine-android"]
+androidTest = ["androidxTest","androidxEspresso"]
 
 [plugins]

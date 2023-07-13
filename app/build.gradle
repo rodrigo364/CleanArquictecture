@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -9,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "br.com.cleanarquictecture"
-        minSdk 24
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -24,11 +26,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 }
 
@@ -38,11 +40,18 @@ dependencies {
     implementation libs.androidx.compact
     implementation libs.google.material
     implementation libs.constraint.layout
+    implementation libs.bundles.coroutine
+    implementation libs.bundles.viewmodel
 
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
     //Modules
     implementation project(':data:network')
     implementation project(':data:local')
 
     testImplementation libs.bundles.test
     androidTestImplementation libs.bundles.androidTest
+}
+kapt {
+    correctErrorTypes true
 }

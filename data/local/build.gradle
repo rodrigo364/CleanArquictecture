@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id "kotlin-kapt"
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+
 }
 
 android {
@@ -9,7 +11,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        minSdk 24
+        minSdk 21
         targetSdk 33
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -34,7 +36,9 @@ android {
 dependencies {
 
     implementation libs.kotlin
-
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+    implementation project(":core")
 
 
     testImplementation libs.bundles.test
