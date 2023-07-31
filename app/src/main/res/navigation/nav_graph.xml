@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/charactersAllFragment">
+
+    <fragment
+        android:id="@+id/charactersAllFragment"
+        android:name="br.com.cleanarquictecture.ui.character.CharactersAllFragment"
+        android:label="fragment_characters_all"
+        tools:layout="@layout/fragment_characters_all" />
+</navigation>

@@ -6,6 +6,11 @@ constraintVersion = "2.1.4"
 lifecycleVersion = "2.6.0"
 coroutineVersion = "1.6.1"
 hiltVersion = "2.44"
+retrofitVersion = "2.9.0"
+gsonVersion = "2.9.0"
+logginVersion = "4.2.1"
+okHttpVersion = "4.9.3"
+navigationVersion = "2.5.3"
 #Test
 junitVersion = "4.13.2"
 jAndroidxVersion = "1.1.5"
@@ -26,18 +31,26 @@ androidx-viewmodel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmod
 #androidx-lifecycle-compiler = { module= "androidx.lifecycle:lifecycle-compile", version.ref = "lifecycleVersion"}
 google-material = {module = "com.google.android.material:material", version.ref = "materialVersion"}
 constraint-layout = {module= "androidx.constraintlayout:constraintlayout", version.ref="constraintVersion"}
-
+retrofit = { module = "com.squareup.retrofit2:retrofit",version.ref="retrofitVersion"}
+gson = {module = "com.squareup.retrofit2:converter-gson", version.ref="gsonVersion"}
+okhttp = {module = "com.squareup.okhttp3:okhttp", version.ref = "okHttpVersion"}
+loggin-interceptor = {module = "com.squareup.okhttp3:logging-interceptor", version.ref = "logginVersion"}
+navigation-ktx = { module = "androidx.navigation:navigation-fragment-ktx" , version.ref= "navigationVersion" }
+navigation-ktx-ui = { module= "androidx.navigation:navigation-ui-ktx", version.ref= "navigationVersion"}
+navigation-dynamic-feature = { module = "androidx.navigation:navigation-dynamic-features-fragment", version.ref = "navigationVersion"}
+#navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref= "navigationVersion"}
 #Tests libs
 junit = {module = "junit:junit", version.ref = "junitVersion"}
 androidxTest = {module="androidx.test.ext:junit",version.ref= "jAndroidxVersion"}
 androidxEspresso = {module = "androidx.test.espresso:espresso-core",version.ref="androidxEspressoCoreVersion"}
 androidxArchCore = { module = "androidx.arch.core:core-testing" , version.ref="archVersion"}
-
+androidNavigationTest = { module = "androidx.navigation:navigation-testing", version.ref="navigationVersion"}
 [bundles]
 test = ["junit","androidxArchCore"]
-viewmodel = ["androidx.viewmodel","androidx.livedata","androidx.runtimektx",
-    "androidx.viewmodel.savedstate"]
+viewmodel = ["androidx.viewmodel","androidx.livedata","androidx.runtimektx", "androidx.viewmodel.savedstate"]
+navigation = ["navigation-ktx","navigation-ktx-ui", "navigation-dynamic-feature"]
 coroutine = ["coroutine-core","coroutine-android"]
-androidTest = ["androidxTest","androidxEspresso"]
+network = ["retrofit","gson","okhttp","loggin-interceptor"]
+androidTest = ["androidxTest","androidxEspresso","androidNavigationTest"]
 
 [plugins]

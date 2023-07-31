@@ -1,23 +1,20 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'com.google.dagger.hilt.android'
-    id 'androidx.navigation.safeargs.kotlin'
 }
 
 android {
-    namespace 'br.com.cleanarquictecture'
+    namespace 'br.com.domain'
     compileSdk 33
 
     defaultConfig {
-        applicationId "br.com.cleanarquictecture"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -36,24 +33,15 @@ android {
 }
 
 dependencies {
-
     implementation libs.kotlin
-    implementation libs.androidx.compact
-    implementation libs.google.material
-    implementation libs.constraint.layout
-    implementation libs.bundles.coroutine
-    implementation libs.bundles.viewmodel
-    implementation libs.bundles.navigation
     implementation libs.hilt.android
+    implementation libs.bundles.network
+
     kapt libs.hilt.compiler
-    //Modules
-    implementation project(':data:network')
-    implementation project(':data:local')
-    implementation project(':domain')
-    implementation project(':core')
+    implementation project(":core")
+    implementation project(":data:network")
+
+
     testImplementation libs.bundles.test
     androidTestImplementation libs.bundles.androidTest
-}
-kapt {
-    correctErrorTypes true
 }
